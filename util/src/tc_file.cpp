@@ -239,9 +239,9 @@ string TC_File::load2str(const string &sFullFileName)
     int nread = -1;
     do {
         char buf[1024] = {'\0'};
-        nread = read(fd, buf, sizeof(buf)-1);
+        nread = read(fd, buf, sizeof(buf));
         if (nread > 0)
-            s += buf;
+            s.append(buf, nread);
     } while (nread > 0);
     close(fd);
     return s;
